@@ -1,10 +1,11 @@
 let noOfCrops = 8;
 let maxNoOfGrapesOnVine = 10;
+let cropArray = [];
 
 $(() => {
   function setUpCropsAndGrapes() {
     for (let i = 0; i < noOfCrops; i++) {
-      let crop = $("<div>").addClass("crop");
+      let crop = $("<div>").addClass(`crop ${i}`);
       $(".field").append(crop);
       for (let i = 0; i < maxNoOfGrapesOnVine; i++) {
         let grape = $("<img>").attr(
@@ -18,17 +19,47 @@ $(() => {
   }
 
   setUpCropsAndGrapes();
-  console.log("All crops?", $(".crop"));
 
-  let grapesCount = 0;
-  var interval = setInterval(function () {
-    if (grapesCount === maxNoOfGrapesOnVine) {
-      clearInterval(interval);
+  function putCropsIntoArray() {
+    for (i = 0; i < noOfCrops; i++) {
+      let getDiv = $(".field")
+        .children()
+        .eq(i + 1); // plus one, because first child is <canvas>
+      cropArray[i] = { div: getDiv, seed: false, grapesCount: 0 };
     }
+  }
+  putCropsIntoArray();
 
-    let crop = $(".field").children().eq(1);
-    let grape = crop.children().eq(grapesCount);
-    grape.addClass("grown");
-    grapesCount += 1;
-  }, 1000);
+  $(".crop").on("click", function (e) {
+    console.log($(e.target).attr("class"));
+    let className = $(e.target).attr("class");
+    let getIndex = cropArray.findIndex(
+      (element) => element.div.attr("class") === className
+    );
+    cropArray[getIndex].seed = true;
+    console.log(cropArray[getIndex].seed);
+  });
+
+  console.log(cropArray);
+
+  for (let i = 0; i < noOfCrops; i++) {
+    let targetCrop = cropArray[i];
+    var interval = setInterval(function () {
+      if (
+        targetCrop.seed === true &&
+        targetCrop.grapesCount < maxNoOfGrapesOnVine
+      ) {
+        let grape = targetCrop.div.children().eq(targetCrop.grapesCount);
+        grape.addClass("grown");
+        targetCrop.grapesCount++;
+        if (targetCrop.grapesCount === maxNoOfGrapesOnVine) {
+          clearInterval(interval);
+        }
+        console.log(targetCrop.div.children());
+        console.log(targetCrop.grapesCount);
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
 });

@@ -39,3 +39,7 @@ canvas {
 .grape.grown {
   transform: scale(1);
 }
+
+.test {
+  background-color: chartreuse;
+}
