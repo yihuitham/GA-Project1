@@ -1,0 +1,27 @@
+.field {
+  position: relative;
+  background-color: rgb(37, 165, 37);
+  width: 500px;
+  height: 520px;
+  /* z-index: 0; */
+  margin: auto;
+  padding: 0 0 15px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.crop {
+  background-color: #b5651e;
+  width: 100px;
+  height: 100px;
+  /* z-index: 0; */
+  margin: 7.5px;
+  display: flex;
+}
+
+canvas {
+  position: absolute;
+  /* z-index: 15; */
+}
