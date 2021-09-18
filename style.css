@@ -14,14 +14,28 @@
 
 .crop {
   background-color: #b5651e;
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
   /* z-index: 0; */
   margin: 7.5px;
+  padding: 7.5px;
   display: flex;
+  flex-flow: wrap;
+  align-content: space-around;
+  justify-content: center;
 }
 
 canvas {
   position: absolute;
   /* z-index: 15; */
+}
+
+.grape {
+  width: 20px;
+  height: 20px;
+  transform: scale(0);
+}
+
+.grape.grown {
+  transform: scale(1);
 }
