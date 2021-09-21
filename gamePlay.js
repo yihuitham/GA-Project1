@@ -28,31 +28,16 @@ function plantOrHarvest() {
         if (!targetCrop.seed) {
           targetCrop.seed = true;
           character.seeds--;
-          targetCrop.grapeInterval();
+          targetCrop.growGrapes();
           console.log(targetCrop);
         } else {
-          targetCrop.grapeInterval();
+          console.log(targetCrop.grapesCount);
           character.grapes += targetCrop.grapesCount;
-          targetCrop.grapesCount = 0;
           targetCrop.seed = false;
+          targetCrop.removeGrapes();
+          targetCrop.grapesCount = 0;
           console.log(targetCrop.grapesCount);
         }
-
-        // if (targetCrop.seed) {
-        //   console.log(targetCrop.grapesCount);
-        //   clearInterval(grapeGrowInterval);
-        //   character.grapes += targetCrop.grapesCount;
-        //   targetCrop.grapesCount = 0;
-        //   targetCrop.seed = false;
-        //   console.log(targetCrop.grapesCount);
-        //   console.log(character);
-        // } else {
-        //   console.log(character.seeds);
-        //   targetCrop.seed = true;
-        //   character.seeds--;
-        //   growGrapes(targetCrop);
-        //   console.log(character.seeds);
-        // }
       }
     }
   }

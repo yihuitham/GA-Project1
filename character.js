@@ -46,7 +46,7 @@ function keyUpListener(event) {
 }
 
 function loadImage() {
-  img.src = "character.png";
+  img.src = "img/character.png";
   img.onload = function () {
     window.requestAnimationFrame(gameLoop);
   };

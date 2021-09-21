@@ -9,7 +9,7 @@ const cropOffsetLeft = 20;
 const maxNoOfGrapesOnVine = 10;
 let crops = [];
 let crops1dArray = [];
-const grapeGrowTime = 5000;
+const grapeGrowTime = 1000;
 
 function setUpCropDiv(c, r, x, y) {
   let cropDiv = $("<div>").addClass(`crop ${c}${r}`);
@@ -42,20 +42,27 @@ for (let c = 0; c < cropColumnCount; c++) {
       div: cropDiv,
       seed: false,
       grapesCount: 0,
-      grapeInterval: function () {
-        console.log("yayyyyy");
-        grapeGrowInterval = setInterval(function () {
+      growGrapes: function () {
+        let grapeGrowInterval = setInterval(() => {
           if (this.seed && this.grapesCount < maxNoOfGrapesOnVine) {
+            console.log("yayyyy");
             let grape = this.div.children().eq(this.grapesCount);
             grape.addClass("grown");
             this.grapesCount++;
             if (this.grapesCount === maxNoOfGrapesOnVine) {
-              clearInterval(interval);
+              clearInterval(grapeGrowInterval);
             }
           } else {
             clearInterval(grapeGrowInterval);
           }
         }, grapeGrowTime);
+      },
+      removeGrapes: function () {
+        console.log("hihi", this);
+        for (let i = 0; i < this.grapesCount; i++) {
+          let grape = this.div.children().eq(this.grapesCount);
+          grape.removeClass("grown");
+        }
       },
     };
     crops1dArray.push(crops[c][r]);
