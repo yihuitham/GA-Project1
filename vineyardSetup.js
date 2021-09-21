@@ -1,3 +1,22 @@
+//amenities common variables
+const amenitySize = 100; //width and height of amenities, 100x100
+
+//buy shop variables
+const buyX = 100;
+const buyY = 0;
+
+//sell shop variables
+const sellX = 300;
+const sellY = 0;
+
+//wine crate variables
+const crateX = 372.5;
+const crateY = 100;
+
+//oak variables
+const oakX = 372.5;
+const oakY = 200;
+
 //crop variables
 const cropRowCount = 2;
 const cropColumnCount = 4;
@@ -10,7 +29,7 @@ const maxNoOfGrapesOnVine = 10;
 let crops = [];
 let crops1dArray = [];
 const grapeGrowTime = 1000;
-
+//setting up the crops, aka brown background divs with grapes(hidden)
 function setUpCropDiv(c, r, x, y) {
   let cropDiv = $("<div>").addClass(`crop ${c}${r}`);
   cropDiv.css({ left: x, top: y });
@@ -69,7 +88,3 @@ for (let c = 0; c < cropColumnCount; c++) {
   }
 }
 console.log("1d Array ", crops1dArray);
-
-$(".crop").on("click", function (e) {
-  console.log($(e.target).attr("class"));
-}); //doesnt work because of canvas overlay

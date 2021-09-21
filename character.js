@@ -34,6 +34,10 @@ window.addEventListener("keydown", keyDownListener);
 function keyDownListener(event) {
   if (event.which === 32) {
     plantOrHarvest();
+    ageOrBottleWine();
+    takeBottles();
+    buy();
+    sell();
   } else {
     keyPresses[event.key] = true;
     console.log(keyPresses);

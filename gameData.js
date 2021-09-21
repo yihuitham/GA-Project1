@@ -1,4 +1,3 @@
-//$(".time-left").append(countDown);
 $(".cash").text(`$ ${character.cash}`);
 $(".display-no-grapes").text(character.grapes);
 $(".display-no-bottles").text(character.bottles);

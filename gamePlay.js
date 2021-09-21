@@ -1,20 +1,3 @@
-let grapeGrowInterval;
-
-function plantOrHarvest() {
-  for (let i = 0; i < crops1dArray.length; i++) {
-    let crop = crops1dArray[i];
-    if (
-      positionX + SCALED_WIDTH / 2 > crop.x &&
-      positionX + SCALED_WIDTH / 2 < crop.x + cropWidth &&
-      positionY + SCALED_HEIGHT > crop.y &&
-      positionY + SCALED_HEIGHT < crop.y + cropHeight
-    ) {
-      crop.seed = true;
-      // console.log(crop);
-    }
-  }
-}
-
 function plantOrHarvest() {
   for (let i = 0; i < crops1dArray.length; i++) {
     let targetCrop = crops1dArray[i];
@@ -33,6 +16,7 @@ function plantOrHarvest() {
         } else {
           console.log(targetCrop.grapesCount);
           character.grapes += targetCrop.grapesCount;
+          $(".display-no-grapes").text(character.grapes);
           targetCrop.seed = false;
           targetCrop.removeGrapes();
           targetCrop.grapesCount = 0;
@@ -43,18 +27,46 @@ function plantOrHarvest() {
   }
 }
 
-// function growGrapes(targetCrop) {
-//   grapeGrowInterval = setInterval(function () {
-//     if (targetCrop.grapesCount < maxNoOfGrapesOnVine) {
-//       let grape = targetCrop.div.children().eq(targetCrop.grapesCount);
-//       grape.addClass("grown");
-//       targetCrop.grapesCount++;
-//       if (targetCrop.grapesCount === maxNoOfGrapesOnVine) {
-//         clearInterval(interval);
-//       }
-//       console.log(targetCrop);
-//     } else {
-//       clearInterval(grapeGrowInterval);
-//     }
-//   }, grapeGrowTime);
-// }
+function ageOrBottleWine() {
+  if (
+    positionX > oakX &&
+    positionX < oakX + amenitySize &&
+    positionY > oakY &&
+    positionY < oakY + amenitySize
+  ) {
+    console.log("im in the oak!");
+  }
+}
+
+function takeBottles() {
+  if (
+    positionX > crateX &&
+    positionX < crateX + amenitySize &&
+    positionY > crateY &&
+    positionY < crateY + amenitySize
+  ) {
+    console.log("im in the crate!");
+  }
+}
+
+function buy() {
+  if (
+    positionX > buyX &&
+    positionX < buyX + amenitySize &&
+    positionY > buyY &&
+    positionY < buyY + amenitySize
+  ) {
+    console.log("im shopping!");
+  }
+}
+
+function sell() {
+  if (
+    positionX > sellX &&
+    positionX < sellX + amenitySize &&
+    positionY > sellY &&
+    positionY < sellY + amenitySize
+  ) {
+    console.log("im making money!");
+  }
+}

@@ -14,21 +14,16 @@
   /* z-index: 0; */
   margin: auto;
   padding: 0 0 15px 0;
-  /* display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: flex-end; */
+}
+
+canvas {
+  position: absolute;
+  z-index: 15;
 }
 
 img {
   width: 100px;
   height: 100px;
-}
-
-.oak {
-  position: absolute;
-  top: 200px;
-  right: 27.5px;
 }
 
 .buy {
@@ -41,11 +36,34 @@ img {
   left: 300px;
 }
 
-.winebottles {
+.winecrate {
   position: absolute;
+  width: 100px;
+  height: 100px;
   top: 100px;
   right: 27.5px;
-  object-fit: cover;
+  background-image: url("img/bottle0.png");
+  background-size: 120px;
+  transform: scale(0);
+}
+
+.winecrate.fill {
+  transform: scale(1);
+}
+
+.oak {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 200px;
+  right: 27.5px;
+  background-image: url("img/oak0.png");
+  background-size: contain;
+  transform: scale(0);
+}
+
+.oak.fill {
+  transform: scale(1);
 }
 
 .crop {
@@ -60,11 +78,6 @@ img {
   flex-flow: wrap;
   align-content: space-around;
   justify-content: center;
-}
-
-canvas {
-  position: absolute;
-  z-index: 15;
 }
 
 .grape {
