@@ -18,7 +18,7 @@ $(() => {
     }
   }
 
-  setUpCropsAndGrapes();
+  // setUpCropsAndGrapes();
 
   function putCropsIntoArray() {
     for (i = 0; i < noOfCrops; i++) {

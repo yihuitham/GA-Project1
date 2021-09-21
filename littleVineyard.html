@@ -11,14 +11,27 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
-    <script src="gameSetup.js"></script>
+    <!-- <script src="gameSetup.js"></script> -->
   </head>
   <body>
+    <button id="start-button">Start</button>
+    <div class="game-data">
+      <h6>Time Left:</h6>
+      <h6 class="time-left"></h6>
+      <h6>Cash:</h6>
+      <h6 class="cash"></h6>
+      <h6>Grapes:</h6>
+      <h6 class="display-no-grapes"></h6>
+      <h6>Bottles:</h6>
+      <h6 class="display-no-bottles"></h6>
+    </div>
     <div class="field">
-      <!-- <canvas id="canvas" width="500" height="520"> </canvas> -->
+      <canvas id="canvas" width="500" height="520"> </canvas>
     </div>
 
-    <!-- <script src="character.js"></script> -->
-    <script src="vineyard.js"></script>
+    <script src="vineyardSetup.js"></script>
+    <script src="character.js"></script>
+    <script src="gamePlay.js"></script>
+    <script src="gameData.js"></script>
   </body>
 </html>

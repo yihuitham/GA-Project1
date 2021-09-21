@@ -1,3 +1,7 @@
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+//variables to draw and move character
 const SCALE = 0.75;
 const WIDTH = 64;
 const HEIGHT = 64;
@@ -10,9 +14,6 @@ const FACING_RIGHT = 2;
 const FACING_UP = 3;
 const FRAME_LIMIT = 12;
 const MOVEMENT_SPEED = 2;
-
-let canvas = document.querySelector("canvas");
-let ctx = canvas.getContext("2d");
 let keyPresses = {};
 let currentDirection = FACING_DOWN;
 let currentLoopIndex = 0;
@@ -21,9 +22,22 @@ let positionX = 0;
 let positionY = 0;
 let img = new Image();
 
+//character properties
+const character = {
+  cash: 5,
+  seeds: 3,
+  grapes: 0,
+  bottles: 0,
+};
+
 window.addEventListener("keydown", keyDownListener);
 function keyDownListener(event) {
-  keyPresses[event.key] = true;
+  if (event.which === 32) {
+    plantOrHarvest();
+  } else {
+    keyPresses[event.key] = true;
+    console.log(keyPresses);
+  }
 }
 
 window.addEventListener("keyup", keyUpListener);
@@ -52,25 +66,23 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
   );
 }
 
-loadImage();
-
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   let hasMoved = false;
 
-  if (keyPresses.w) {
+  if (keyPresses.w || keyPresses.ArrowUp) {
     moveCharacter(0, -MOVEMENT_SPEED, FACING_UP);
     hasMoved = true;
-  } else if (keyPresses.s) {
+  } else if (keyPresses.s || keyPresses.ArrowDown) {
     moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN);
     hasMoved = true;
   }
 
-  if (keyPresses.a) {
+  if (keyPresses.a || keyPresses.ArrowLeft) {
     moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT);
     hasMoved = true;
-  } else if (keyPresses.d) {
+  } else if (keyPresses.d || keyPresses.ArrowRight) {
     moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT);
     hasMoved = true;
   }
@@ -98,7 +110,6 @@ function gameLoop() {
   );
   window.requestAnimationFrame(gameLoop);
 }
-
 function moveCharacter(deltaX, deltaY, direction) {
   if (
     positionX + deltaX > 0 &&
@@ -114,3 +125,5 @@ function moveCharacter(deltaX, deltaY, direction) {
   }
   currentDirection = direction;
 }
+
+loadImage();
