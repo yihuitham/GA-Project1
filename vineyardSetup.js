@@ -64,7 +64,7 @@ for (let c = 0; c < cropColumnCount; c++) {
       growGrapes: function () {
         let grapeGrowInterval = setInterval(() => {
           if (this.seed && this.grapesCount < maxNoOfGrapesOnVine) {
-            console.log("yayyyy");
+            console.log("Lets grow some grapes!");
             let grape = this.div.children().eq(this.grapesCount);
             grape.addClass("grown");
             this.grapesCount++;
@@ -77,9 +77,12 @@ for (let c = 0; c < cropColumnCount; c++) {
         }, grapeGrowTime);
       },
       removeGrapes: function () {
-        console.log("hihi", this);
-        for (let i = 0; i < this.grapesCount; i++) {
-          let grape = this.div.children().eq(this.grapesCount);
+        console.log("Lets pick some grapes!", this);
+        for (let i = 0; i < 10; i++) {
+          let grape = this.div.children().eq(i);
+          console.log("div", this.div);
+          console.log("check", this.div.children().length);
+          console.log(grape.attr("class"));
           grape.removeClass("grown");
         }
       },

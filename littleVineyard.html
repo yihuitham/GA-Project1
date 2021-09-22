@@ -17,9 +17,11 @@
     <button id="start-button">Start</button>
     <div class="game-data">
       <h6>Time Left:</h6>
-      <h6 class="time-left hihi"></h6>
+      <h6 class="time-left"></h6>
       <h6>Cash:</h6>
       <h6 class="cash"></h6>
+      <h6>Seeds:</h6>
+      <h6 class="seeds"></h6>
       <h6>Grapes:</h6>
       <h6 class="display-no-grapes"></h6>
       <h6>Bottles:</h6>
@@ -49,16 +51,52 @@
         class="winecrate 4"
         style="background-image: url('img/bottle4.png')"
       ></div>
-      <div
-        class="oak 0 fill"
-        style="background-image: url('img/oak0.png')"
-      ></div>
-      <div class="oak 1" style="background-image: url('img/oak1.png')"></div>
-      <div class="oak 2" style="background-image: url('img/oak2.png')"></div>
-      <div class="oak 3" style="background-image: url('img/oak3.png')"></div>
-      <div class="oak 4" style="background-image: url('img/oak4.png')"></div>
+      <div class="oaks">
+        <div
+          class="oak fill"
+          style="background-image: url('img/oak0.png')"
+        ></div>
+        <div class="oak" style="background-image: url('img/oak1.png')"></div>
+        <div class="oak" style="background-image: url('img/oak2.png')"></div>
+        <div class="oak" style="background-image: url('img/oak3.png')"></div>
+        <div class="oak" style="background-image: url('img/oak4.png')"></div>
+      </div>
     </div>
+    <div class="buy-modal">
+      <div class="modal-header">
+        <div class="title">Plant Nursery</div>
+        <button class="close-button">&times;</button>
+      </div>
+      <div class="message">Welcome! How can I help you today?</div>
+      <div class="modal-body">
+        <div class="seeds-for-sale">
+          <label class="seeds-qty" for="seedsQty">Grape seeds: </label>
+          <input id="seeds-qty" type="string" name="seedsQty" />
+        </div>
+        <input id="buy-submit" type="submit" value="Buy" />
+        <p class="buy-p">Not enough cash, come back again.</p>
+      </div>
+    </div>
+    <div class="sell-modal">
+      <div class="modal-header">
+        <div class="title">Little Winery</div>
+        <button class="close-button">&times;</button>
+      </div>
+      <div class="message">Let's sell some local produce!</div>
+      <div class="modal-body">
+        <div class="grapes-for-sale">
+          <label class="grapes-qty" for="grapesQty">Grapes: </label>
+          <input id="grapes-qty" type="string" name="grapesQty" />
+        </div>
+        <div class="bottles-for-sale">
+          <label class="bottles-qty" for="bottlesQty">Wine bottles: </label>
+          <input id="bottles-qty" type="string" name="bottlesQty" />
+        </div>
 
+        <input id="sell-submit" type="submit" value="Sell" />
+        <p class="sell-p">You can't sell what you don't have.</p>
+      </div>
+    </div>
     <script src="vineyardSetup.js"></script>
     <script src="character.js"></script>
     <script src="gameData.js"></script>

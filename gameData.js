@@ -1,19 +1,34 @@
-$(".cash").text(`$ ${character.cash}`);
-$(".display-no-grapes").text(character.grapes);
-$(".display-no-bottles").text(character.bottles);
-
 let $start = $("#start-button");
-let timeCounter;
-let time = 0;
-let timeLimit = 3;
+let countdown;
+let timeLeft = 60;
+
+function updateTime() {
+  $(".time-left").text(timeLeft);
+}
+
+function updateCash() {
+  $(".cash").text(`$ ${character.cash}`);
+}
+
+function updateSeeds() {
+  $(".seeds").text(character.seeds);
+}
+
+function updateGrapes() {
+  $(".display-no-grapes").text(character.grapes);
+}
+
+function updateBottles() {
+  $(".display-no-bottles").text(character.bottles);
+}
 
 const timer = () => {
-  if (time < timeLimit) {
-    time++;
-    $(".time-left").text(time);
+  if (timeLeft > 0) {
+    timeLeft--;
+    $(".time-left").text(timeLeft);
   } else {
     clearInterval(timeCounter);
-    time = 0;
+    timeLeft = 60;
     console.log("times up");
   }
 };
@@ -23,3 +38,9 @@ const startButton = () => {
 };
 
 $start.on("click", startButton);
+
+updateTime();
+updateCash();
+updateSeeds();
+updateGrapes();
+updateBottles();

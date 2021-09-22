@@ -25,9 +25,9 @@ let img = new Image();
 //character properties
 const character = {
   cash: 5,
-  seeds: 3,
+  seeds: 7,
   grapes: 0,
-  bottles: 0,
+  bottles: 2,
 };
 
 window.addEventListener("keydown", keyDownListener);
