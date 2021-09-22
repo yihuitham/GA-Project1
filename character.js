@@ -25,17 +25,20 @@ let img = new Image();
 //character properties
 const character = {
   cash: 5,
-  seeds: 7,
-  grapes: 0,
+  seeds: 3,
+  grapes: 20,
+  wine: 0,
+  wineAge: 0,
   bottles: 2,
+  bottleAge: 0,
 };
 
 window.addEventListener("keydown", keyDownListener);
 function keyDownListener(event) {
   if (event.which === 32) {
     plantOrHarvest();
-    ageOrBottleWine();
-    takeBottles();
+    ageOrTakeWine();
+    bottleWineOrTake();
     buy();
     sell();
   } else {

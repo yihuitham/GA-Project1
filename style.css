@@ -36,7 +36,7 @@ img {
   left: 300px;
 }
 
-.winecrate {
+.wine-crate {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -47,7 +47,11 @@ img {
   transform: scale(0);
 }
 
-.winecrate.fill {
+.wine-crate.empty {
+  transform: scale(1);
+}
+
+.wine-crate.fill {
   transform: scale(1);
 }
 
@@ -60,6 +64,10 @@ img {
   background-image: url("img/oak0.png");
   background-size: contain;
   transform: scale(0);
+}
+
+.oak.empty {
+  transform: scale(1);
 }
 
 .oak.fill {

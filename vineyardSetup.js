@@ -12,10 +12,20 @@ const sellY = 0;
 //wine crate variables
 const crateX = 372.5;
 const crateY = 100;
+const crate = {
+  filled: false,
+  bottles: 0,
+  age: 0,
+};
 
 //oak variables
 const oakX = 372.5;
 const oakY = 200;
+const oak = {
+  filled: false,
+  wine: 0,
+  age: 0,
+};
 
 //crop variables
 const cropRowCount = 2;
