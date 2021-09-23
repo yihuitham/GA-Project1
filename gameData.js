@@ -39,6 +39,18 @@ const startButton = () => {
 
 $start.on("click", startButton);
 
+$(".close-button").each(function () {
+  $(this).on("click", function () {
+    const modal = $(this).closest(".modal");
+    closeModal(modal);
+  });
+});
+
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.css("transform", "scale(0)");
+}
+
 updateTime();
 updateCash();
 updateSeeds();
