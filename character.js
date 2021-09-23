@@ -26,10 +26,9 @@ let img = new Image();
 const character = {
   cash: 5,
   seeds: 3,
-  grapes: 20,
+  grapes: 41,
   wine: 0,
-  wineAge: 0,
-  bottles: 2,
+  bottles: 0,
   bottleAge: 0,
 };
 

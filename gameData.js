@@ -1,6 +1,6 @@
 let $start = $("#start-button");
 let countdown;
-let timeLeft = 60;
+let timeLeft = 300 / reduceTimeScale;
 
 function updateTime() {
   $(".time-left").text(timeLeft);

@@ -1,4 +1,4 @@
-let ageWineInterval;
+let bottleAgingInterval;
 
 function plantOrHarvest() {
   for (let i = 0; i < crops1dArray.length; i++) {
@@ -45,7 +45,7 @@ function ageOrTakeWine() {
   ) {
     if (!oak.filled && character.grapes > 9) {
       ageGrapes();
-    } else {
+    } else if (oak.aged) {
       takeWine();
     }
   }
@@ -53,26 +53,24 @@ function ageOrTakeWine() {
 
 function ageGrapes() {
   console.log("processing grapes");
-  let groupsofTen = Math.floor(character.grapes / 10);
+  let amtOfGrapesToAge = character.grapes > 40 ? 40 : character.grapes;
+  let groupsofTen = Math.floor(amtOfGrapesToAge / 10);
   let grapesToProcess = groupsofTen * 10;
   character.grapes -= grapesToProcess;
   updateGrapes();
   $(".oaks").children().eq(groupsofTen).addClass("fill");
   oak.filled = true;
   oak.wine = groupsofTen;
-  ageWineInterval = setInterval(function () {
-    oak.age++;
-    console.log(oak.age);
-  }, 2000);
+  setTimeout(function () {
+    oak.aged = true;
+  }, wineAgeTime);
 }
 
 function takeWine() {
-  clearInterval(ageWineInterval);
   character.wine += oak.wine;
-  character.wineAge += oak.age;
   oak.wine = 0;
-  oak.age = 0;
   oak.filled = false;
+  oak.aged = false;
   $(".oaks").children().removeClass("fill");
   console.log(character);
 }
@@ -87,7 +85,7 @@ function bottleWineOrTake() {
     console.log("im in the crate!");
     if (!crate.filled && character.wine > 0) {
       bottleWine();
-    } else {
+    } else if (character.bottles === 0) {
       takeWineBottles();
     }
   }
@@ -97,13 +95,18 @@ function bottleWine() {
   console.log(crate);
   crate.filled = true;
   crate.bottles += character.wine;
-  crate.age += character.wineAge;
+  console.log(crate.bottles);
   character.wine = 0;
-  character.wineAge = 0;
-  $(".wine-crates").children().eq(character.bottles).addClass("fill");
+  $(".wine-crates").children().eq(crate.bottles).addClass("fill");
+  bottleAgingInterval = setInterval(function () {
+    crate.age++;
+    // console.log(crate.age);
+  }, bottleAgeTime);
 }
 
 function takeWineBottles() {
+  clearInterval(bottleAgingInterval);
+  console.log(crate.age);
   character.bottles += crate.bottles;
   character.bottleAge += crate.age;
   updateBottles();

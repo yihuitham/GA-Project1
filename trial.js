@@ -64,16 +64,6 @@
 //   }
 // });
 
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-
-  greet(stranger) {
-    console.log("Hi ", stranger.name);
-  }
-}
-
-let me = new Person("yihui");
-let someone = new Person("blabla");
-console.log(me.greet(someone));
+let countTime = -9;
+countTime = countTime < 0 ? 0 : countTime;
+console.log(countTime);
