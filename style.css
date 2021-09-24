@@ -26,15 +26,6 @@ img {
   height: 100px;
 }
 
-img.instructions {
-  width: 10vw;
-  height: 10vh;
-}
-
-.instructions {
-  display: flex;
-}
-
 .buy {
   position: absolute;
   left: 100px;
@@ -114,61 +105,14 @@ img.instructions {
   background-color: chartreuse;
 } */
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* transform: translate(-50%, -50%) scale(1); */
-  transform: scale(0);
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10; /* third layer*/
-  background-color: white;
-  width: 300px;
-  height: 250px;
-  max-width: 80%;
+.instruction-steps {
+  width: 200px;
+  margin-right: 0;
 }
 
-.instructions-modal {
-  width: 400px;
-  height: 400px;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.modal-header {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 20px;
-  border-bottom: 1px solid black;
-}
-
-.modal-header .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 20px;
-}
-.message {
-  text-align: center;
-  margin: 10px;
-  font-style: italic;
-}
-
-.modal-body {
-  height: 150px;
-  padding: 10px 15px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: space-around;
-}
-
-.instructions-modal-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+footer {
+  margin-top: auto;
+  height: 59px;
 }
 
 .seeds-for-sale,

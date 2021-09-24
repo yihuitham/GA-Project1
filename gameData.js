@@ -46,9 +46,24 @@ $(".close-button").each(function () {
   });
 });
 
+$(".next").on("click", function () {
+  const page1 = $(".page1");
+  closeModal(page1);
+});
+
+$(".previous").on("click", function () {
+  const page1 = $(".page1");
+  openModal(page1);
+});
+
 function closeModal(modal) {
   if (modal == null) return;
   modal.css("transform", "scale(0)");
+}
+
+function openModal(modal) {
+  if (modal == null) return;
+  modal.css("transform", "translate(-50%, -50%) scale(1)");
 }
 
 updateTime();

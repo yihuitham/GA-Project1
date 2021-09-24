@@ -1,0 +1,141 @@
+/* img {
+  width: 100px;
+  height: 100px;
+} */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%) scale(1); */
+  transform: scale(0);
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10; /* third layer*/
+  background-color: white;
+  width: 300px;
+  height: 250px;
+  max-width: 80%;
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 20px;
+}
+.message {
+  text-align: center;
+  margin: 10px;
+  font-style: italic;
+}
+
+.modal-body {
+  height: 150px;
+  padding: 10px 15px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.instructions-modal {
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* .instructions-modal.page1 {
+  transform: translate(-50%, -50%) scale(0);
+} */
+
+/* .instructions-modal.page2 {
+  transform: scale(0);
+} */
+
+.page1 {
+  z-index: 10;
+}
+
+.page2 {
+  z-index: 5;
+}
+
+img.keys {
+  width: 75px;
+  height: 53px;
+  padding: 10px 0;
+}
+
+img.spacebar {
+  width: 150px;
+  height: 53px;
+
+  padding: 10px 0;
+}
+
+.instructions {
+  display: flex;
+}
+
+.instructions-modal-body {
+  height: 355px;
+  padding: 10px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+}
+
+.instruction-steps {
+  width: 200px;
+  padding: 0 0 10px 10px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: 15px;
+  height: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+a {
+  display: inline;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 15px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.next {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.previous {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.round {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+}
