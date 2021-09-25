@@ -4,7 +4,7 @@ let $previous = $(".previous");
 let $close = $(".close-button");
 let $restart = $("#reset-btn");
 let countdown;
-let timeLeft = 300 / reduceTimeScale / 10;
+let timeLeft = 3;
 
 function updateTime() {
   $(".time-left").text(timeLeft);
@@ -30,12 +30,15 @@ function timer() {
   if (timeLeft > 0) {
     timeLeft--;
     $(".time-left").text(timeLeft);
+    console.log("timeLeft: ", timeLeft);
   } else {
     clearInterval(timeCounter);
-    timeLeft = 60;
     console.log("times up");
     startGame = false;
     $("#overlay").css("opacity", "1");
+    $("#points").text(`$ ${character.cash}`);
+    compareScores();
+    $("#highscore").text(`$ ${window.localStorage.highscore}`);
     openModal($(".game-over-modal"));
   }
 }
@@ -55,6 +58,14 @@ function closeModal(modal) {
 function openModal(modal) {
   if (modal == null) return;
   modal.css("transform", "translate(-50%, -50%) scale(1)");
+}
+
+function compareScores() {
+  let highscore = Math.max(
+    character.cash,
+    window.localStorage.getItem("highscore")
+  );
+  window.localStorage.setItem("highscore", highscore);
 }
 
 $start.on("click", startButton);

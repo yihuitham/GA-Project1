@@ -1,8 +1,7 @@
 //setting time intervals
-let reduceTimeScale = 10;
-let grapeGrowthTime = 10000 / reduceTimeScale; //in ms
-let wineAgeTime = 20000 / reduceTimeScale; //in ms
-let bottleAgeTime = 20000 / reduceTimeScale; //in ms
+let grapeGrowthTime = 10000; //in ms
+let wineAgeTime = 20000; //in ms
+let bottleAgeTime = 20000; //in ms
 
 //amenities common variables
 const amenitySize = 100; //width and height of amenities, 100x100

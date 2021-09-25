@@ -184,7 +184,8 @@ a:hover {
   justify-content: space-evenly;
 }
 
-#points {
+#points,
+#highscore {
   font-weight: bold;
   padding: 10px;
   background-color: lightgray;

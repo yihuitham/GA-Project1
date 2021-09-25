@@ -27,7 +27,7 @@ let img = new Image();
 
 //character properties
 const character = {
-  cash: 5,
+  cash: 1,
   seeds: 3,
   grapes: 31,
   wine: 0,
