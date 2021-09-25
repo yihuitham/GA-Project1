@@ -4,7 +4,7 @@ let $previous = $(".previous");
 let $close = $(".close-button");
 let $restart = $("#reset-btn");
 let countdown;
-let timeLeft = 3;
+let timeLeft = 300;
 
 function updateTime() {
   $(".time-left").text(timeLeft);
