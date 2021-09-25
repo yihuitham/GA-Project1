@@ -15,7 +15,6 @@
     <!-- <script src="gameSetup.js"></script> -->
   </head>
   <body>
-    <button id="start-button">Start</button>
     <div class="game-data">
       <h6>Time Left:</h6>
       <h6 class="time-left"></h6>
@@ -101,7 +100,7 @@
       </div>
     </div>
     <div class="instructions-modal page1 modal">
-      <div class="modal-header">
+      <div class="instructions-modal-header">
         <div class="title">Game Play</div>
       </div>
       <div class="instructions-modal-body">
@@ -132,15 +131,30 @@
       </div>
     </div>
     <div class="instructions-modal page2 modal">
-      <div class="modal-header">
+      <div class="instructions-modal-header">
         <div class="title">Game Play</div>
-        <button class="close-button">&times;</button>
       </div>
       <div class="instructions-modal-body">
         <a href="#" class="previous round">&#8249;</a>
+        Let's see how much money you can earn in 5 mins. <br />
+        Some information to get you started:
+        <ul>
+          <li>You start the game with $3</li>
+          <li>A grape seed costs $1</li>
+          <li>A bunch of grapes can be sold at $2</li>
+          <li>10 bunches are required to make a bottle of wine</li>
+          <li>The oak can take a maximum of 40 bunches</li>
+          <li>A bottle of wine can be sold at $30</li>
+          <li>
+            With every year a wine bottle ages, it can be sold for $5 more
+          </li>
+        </ul>
+        <br />
+        <button id="start-btn">START!</button>
         <footer>Page 2/2</footer>
       </div>
     </div>
+    <div id="overlay"></div>
     <script src="vineyardSetup.js"></script>
     <script src="character.js"></script>
     <script src="gameData.js"></script>

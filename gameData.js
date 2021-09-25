@@ -1,4 +1,4 @@
-let $start = $("#start-button");
+let $start = $("#start-btn");
 let countdown;
 let timeLeft = 300 / reduceTimeScale;
 
@@ -34,6 +34,9 @@ const timer = () => {
 };
 
 const startButton = () => {
+  startGame = true;
+  closeModal($(".instructions-modal"));
+  $("#overlay").css("opacity", "0");
   timeCounter = setInterval(timer, 1000);
 };
 

@@ -1,6 +1,9 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+//to disable keypress events
+let startGame = false;
+
 //variables to draw and move character
 const SCALE = 0.75;
 const WIDTH = 64;
@@ -34,15 +37,17 @@ const character = {
 
 window.addEventListener("keydown", keyDownListener);
 function keyDownListener(event) {
-  if (event.which === 32) {
-    plantOrHarvest();
-    ageOrTakeWine();
-    bottleWineOrTake();
-    buy();
-    sell();
-  } else {
-    keyPresses[event.key] = true;
-    console.log(keyPresses);
+  if (startGame) {
+    if (event.which === 32) {
+      plantOrHarvest();
+      ageOrTakeWine();
+      bottleWineOrTake();
+      buy();
+      sell();
+    } else {
+      keyPresses[event.key] = true;
+      console.log(keyPresses);
+    }
   }
 }
 
