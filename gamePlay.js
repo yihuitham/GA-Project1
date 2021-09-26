@@ -123,18 +123,29 @@ function buy() {
     positionY > buyY &&
     positionY < buyY + amenitySize
   ) {
-    console.log("im shopping!");
-    $(".buy-modal").css("transform", "translate(-50%, -50%) scale(1)");
+    $(".buy-modal").show();
     $("#buy-submit").on("click", function () {
+      console.log("im shopping!");
+      console.log("Character's seeds before:", character.seeds);
+      //get number of seeds player would like to buy
       let buySeeds = parseInt($("#seeds-qty").val());
+      console.log("No. of seeds to buy:", buySeeds);
+      console.log("Character's seeds before:", character.seeds);
+      //if cash is sufficient, buy
       if (buySeeds <= character.cash) {
+        //add seeds to character's inventory
         character.seeds += buySeeds;
+        //deduct cash from character, 1 seed at $1
         character.cash -= buySeeds;
         updateCash();
         updateSeeds();
-        $(".buy-modal").css("transform", "scale(0)");
+        console.log(`buySeeds ${buySeeds}`);
+        console.log(`character.seeds ${character.seeds}`);
+        $(".buy-modal").hide();
+        $("#buy-submit").unbind("click");
       } else {
-        $("p").css("transform", "scale(1)");
+        //if cash is insufficient, pop up message
+        $(".buy-p").show();
       }
     });
   }
@@ -148,7 +159,7 @@ function sell() {
     positionY < sellY + amenitySize
   ) {
     console.log("im making money!");
-    $(".sell-modal").css("transform", "translate(-50%, -50%) scale(1)");
+    $(".sell-modal").show();
     $("#sell-submit").on("click", function () {
       console.log("sell!!!");
       let sellGrapes = parseInt($("#grapes-qty").val() || 0);
@@ -163,7 +174,7 @@ function sell() {
         updateCash();
         updateGrapes();
         updateBottles();
-        $(".sell-modal").css("transform", "scale(0)");
+        $(".sell-modal").hide();
       } else {
         $(".sell-p").css("transform", "scale(1)");
       }

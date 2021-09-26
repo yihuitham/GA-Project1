@@ -1,5 +1,5 @@
 //setting time intervals
-let grapeGrowthTime = 10000; //in ms
+let grapeGrowthTime = 5000; //in ms
 let wineAgeTime = 20000; //in ms
 let bottleAgeTime = 20000; //in ms
 
@@ -43,7 +43,6 @@ const cropOffsetLeft = 20;
 const maxNoOfGrapesOnVine = 10;
 let crops = [];
 let crops1dArray = [];
-const grapeGrowTime = 1000;
 //setting up the crops, aka brown background divs with grapes(hidden)
 function setUpCropDiv(c, r, x, y) {
   let cropDiv = $("<div>").addClass(`crop ${c}${r}`);
@@ -89,7 +88,7 @@ for (let c = 0; c < cropColumnCount; c++) {
           } else {
             clearInterval(grapeGrowInterval);
           }
-        }, grapeGrowTime);
+        }, grapeGrowthTime);
       },
       removeGrapes: function () {
         console.log("Lets pick some grapes!", this);

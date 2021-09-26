@@ -46,7 +46,7 @@ function keyDownListener(event) {
       sell();
     } else {
       keyPresses[event.key] = true;
-      console.log(keyPresses);
+      // console.log(keyPresses);
     }
   }
 }

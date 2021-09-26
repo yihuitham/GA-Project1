@@ -3,8 +3,9 @@ let $next = $(".next");
 let $previous = $(".previous");
 let $close = $(".close-button");
 let $restart = $("#reset-btn");
+let timeCounter;
 let countdown;
-let timeLeft = 300;
+let timeLeft = 300; //in seconds
 
 function updateTime() {
   $(".time-left").text(timeLeft);
@@ -30,23 +31,23 @@ function timer() {
   if (timeLeft > 0) {
     timeLeft--;
     $(".time-left").text(timeLeft);
-    console.log("timeLeft: ", timeLeft);
+    // console.log("timeLeft: ", timeLeft);
   } else {
     clearInterval(timeCounter);
     console.log("times up");
     startGame = false;
-    $("#overlay").css("opacity", "1");
+    $("#overlay").show();
     $("#points").text(`$ ${character.cash}`);
     compareScores();
     $("#highscore").text(`$ ${window.localStorage.highscore}`);
-    openModal($(".game-over-modal"));
+    $(".game-over-modal").show();
   }
 }
 
 function startButton() {
   startGame = true;
-  closeModal($(".instructions-modal"));
-  $("#overlay").css("opacity", "0");
+  $(".instructions-modal").hide();
+  $("#overlay").hide();
   timeCounter = setInterval(timer, 1000);
 }
 
@@ -61,11 +62,11 @@ function openModal(modal) {
 }
 
 function compareScores() {
-  let highscore = Math.max(
-    character.cash,
-    window.localStorage.getItem("highscore")
-  );
-  window.localStorage.setItem("highscore", highscore);
+  let highscore = window.localStorage.getItem("highscore");
+
+  !highscore || character.cash > highscore
+    ? window.localStorage.setItem("highscore", cash)
+    : null;
 }
 
 $start.on("click", startButton);
@@ -73,18 +74,18 @@ $start.on("click", startButton);
 $close.each(function () {
   $(this).on("click", function () {
     const modal = $(this).closest(".modal");
-    closeModal(modal);
+    modal.hide();
   });
 });
 
 $next.on("click", function () {
-  const page1 = $(".page1");
-  closeModal(page1);
+  $(".page1").hide();
+  $(".page2").show();
 });
 
 $previous.on("click", function () {
-  const page1 = $(".page1");
-  openModal(page1);
+  $(".page2").hide();
+  $(".page1").show();
 });
 
 $restart.on("click", function () {
