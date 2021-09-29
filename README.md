@@ -41,7 +41,7 @@ With only $3 to start with, player is to strategise how to make as much money as
 - There were glitches when it comes to buying and selling, the modals disappears as soon as it appears.
 - The buying and selling of items mulitiplied on its own
 
-### Game instructions
+### Game Instructions
 
 Challenge yourself to make as much money as possible!
 Buy some grape seeds, sow them, harvest the grapes, and then either sell the grapes or use them to make wine to earn some money
