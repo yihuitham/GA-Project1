@@ -44,5 +44,6 @@ With only $3 to start with, player is to strategise how to make as much money as
 ### Game Instructions
 
 Challenge yourself to make as much money as possible!
-Buy some grape seeds, sow them, harvest the grapes, and then either sell the grapes or use them to make wine to earn some money
+Buy some grape seeds, sow them, harvest the grapes, and then either sell the grapes or use them to make wine to earn some money.
+
 Hint: Storing the bottles for as long as possible before selling them will earn you more money.
