@@ -45,19 +45,16 @@ let crops = [];
 let crops1dArray = [];
 //setting up the crops, aka brown background divs with grapes(hidden)
 function setUpCropDiv(c, r, x, y) {
-  let cropDiv = $("<div>").addClass(`crop ${c}${r}`);
+  let cropDiv = $('<div>').addClass(`crop ${c}${r}`);
   cropDiv.css({ left: x, top: y });
-  $(".field").append(cropDiv);
+  $('.field').append(cropDiv);
   return cropDiv;
 }
 
 function setUpGrapesDiv(cropDiv) {
   for (let i = 0; i < maxNoOfGrapesOnVine; i++) {
-    let grape = $("<img>").attr(
-      "src",
-      "https://image.flaticon.com/icons/png/512/2431/2431996.png"
-    );
-    grape.addClass("grape");
+    let grape = $('<img>').attr('src', 'img/grapes.png');
+    grape.addClass('grape');
     cropDiv.append(grape);
   }
 }
@@ -78,9 +75,9 @@ for (let c = 0; c < cropColumnCount; c++) {
       growGrapes: function () {
         let grapeGrowInterval = setInterval(() => {
           if (this.seed && this.grapesCount < maxNoOfGrapesOnVine) {
-            console.log("Lets grow some grapes!");
+            console.log('Lets grow some grapes!');
             let grape = this.div.children().eq(this.grapesCount);
-            grape.addClass("grown");
+            grape.addClass('grown');
             this.grapesCount++;
             if (this.grapesCount === maxNoOfGrapesOnVine) {
               clearInterval(grapeGrowInterval);
@@ -91,17 +88,17 @@ for (let c = 0; c < cropColumnCount; c++) {
         }, grapeGrowthTime);
       },
       removeGrapes: function () {
-        console.log("Lets pick some grapes!", this);
+        console.log('Lets pick some grapes!', this);
         for (let i = 0; i < 10; i++) {
           let grape = this.div.children().eq(i);
-          console.log("div", this.div);
-          console.log("check", this.div.children().length);
-          console.log(grape.attr("class"));
-          grape.removeClass("grown");
+          console.log('div', this.div);
+          console.log('check', this.div.children().length);
+          console.log(grape.attr('class'));
+          grape.removeClass('grown');
         }
       },
     };
     crops1dArray.push(crops[c][r]);
   }
 }
-console.log("1d Array ", crops1dArray);
+console.log('1d Array ', crops1dArray);
