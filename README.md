@@ -13,7 +13,7 @@
 
 ## Game: Little Vineyard
 
-### Game Description
+### Description
 
 Little Vineyard is a farming simulation game inspired by Eric Barone who created Stardew Valley. He initially developed the game only to practice his programming skills. In a turn of events, the game went on to make commercial success.
 
@@ -21,7 +21,7 @@ In Little Vineyard, player can buy grape seeds to grow grapes. The grapes can be
 
 With only $3 to start with, player is to strategise how to make as much money as possible within a limited timeframe of 5 mins.
 
-### Game Link
+### Link
 
 [https://yihuitham.github.io/GA-Project1/littleVineyard.html](https://yihuitham.github.io/GA-Project1/littleVineyard.html)
 
