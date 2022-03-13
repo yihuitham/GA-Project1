@@ -11,8 +11,6 @@
 6. Be displayed in the browser
 7. Have some kind of user interaction via mouseclick or keypress
 
-### Game Description
-
 ## Little Vineyard
 
 ### Game Description
